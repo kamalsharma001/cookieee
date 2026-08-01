@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Friendship Day</title>
+
+<style>
+body{
+    background:yellow;
+    font-family:Times New Roman;
+    text-align:center;
+    margin-top:150px;
+}
+
+h1{
+    color:blue;
+}
+
+p{
+    color:red;
+}
+
+button{
+    background:lightgreen;
+    color:black;
+    border:2px solid black;
+    padding:10px 20px;
+    font-size:16px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Happy Friendship Day</h1>
+
+<p>I have a small gift for you :)</p>
+
+<button onclick="gift()">Open Ur Gift</button>
+
+<script>
+
+function gift(){
+
+    let pin = prompt("Use ur phone password\n\nEnter PIN");
+
+    if(pin === "95411"){
+
+        alert("Correct Password");
+
+        window.location.href = "https://cookieee-and-her-tuitui.netlify.app/";
+
+    }
+    else{
+
+        alert("Access Denied");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
