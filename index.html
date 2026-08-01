@@ -8,24 +8,27 @@ body{
     background:yellow;
     font-family:Times New Roman;
     text-align:center;
-    margin-top:150px;
+    margin:0;
 }
 
 h1{
     color:blue;
+    font-size:85px;
+    margin-top:180px;
 }
 
-p{
-    color:red;
-}
-
-button{
-    background:lightgreen;
-    color:black;
-    border:2px solid black;
-    padding:10px 20px;
-    font-size:16px;
+.corner{
+    position:fixed;
+    bottom:8px;
+    right:10px;
+    font-size:11px;
+    color:#555;
     cursor:pointer;
+    text-decoration:none;
+}
+
+.corner:hover{
+    color:#333;
 }
 </style>
 
@@ -33,17 +36,19 @@ button{
 
 <body>
 
-<h1>Happy Friendship Day</h1>
+<h1>HAPPY FRIENDSHIP DAY!!</h1>
 
-<p>I have a small gift for you :)</p>
+<p style="color:red">May God bless my bestiee</p>
 
-<button onclick="gift()">Open Ur Gift</button>
-
+<div class="corner" onclick="gift()" style="color:pink">
+    Maybe something is waiting
+</div>
+<p style="color:magenta; padding:200px">May be u are missing something hidden</p>
 <script>
 
 function gift(){
 
-    let pin = prompt("Use ur phone password\n\nEnter PIN");
+    let pin = prompt("Use ur phone password.\n\nEnter PIN");
 
     if(pin === "95411"){
 
