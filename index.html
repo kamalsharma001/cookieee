@@ -4,50 +4,124 @@
 <title>Friendship Day</title>
 
 <style>
+
 body{
-    background:yellow;
-    font-family:Times New Roman;
-    text-align:center;
     margin:0;
+    text-align:center;
+    font-family:"Comic Sans MS", cursive;
+    background:yellow;
+    overflow-x:hidden;
+    animation:bgChange 5s infinite;
+}
+
+/* Background changes every 5 seconds */
+@keyframes bgChange{
+    0%{background:#ffff00;}
+    20%{background:#ffd6ff;}
+    40%{background:#b8ffb8;}
+    60%{background:#b3e5ff;}
+    80%{background:#ffe4a3;}
+    100%{background:#ffff00;}
+}
+
+/* Rainbow text */
+@keyframes rainbow{
+    0%{color:red;}
+    12%{color:blue;}
+    24%{color:green;}
+    36%{color:magenta;}
+    48%{color:orange;}
+    60%{color:purple;}
+    72%{color:deeppink;}
+    84%{color:brown;}
+    100%{color:red;}
 }
 
 h1{
-    color:blue;
-    font-size:85px;
-    margin-top:180px;
+    font-size:80px;
+    margin-top:170px;
+    animation:rainbow 1s infinite;
+}
+
+h2{
+    animation:rainbow 1.6s infinite;
+}
+
+h3{
+    animation:rainbow .8s infinite;
+}
+
+h4{
+    animation:rainbow 1.2s infinite;
+    margin-top:130px;
+}
+
+marquee{
+    font-size:28px;
+    animation:rainbow .7s infinite;
 }
 
 .corner{
     position:fixed;
-    bottom:8px;
+    bottom:10px;
     right:10px;
-    font-size:11px;
-    color:#555;
+    font-size:10px;
+    color:#444;
     cursor:pointer;
-    text-decoration:none;
+    animation:blink 4s infinite;
+    transition:.3s;
 }
 
 .corner:hover{
-    color:#333;
+    transform:scale(1.1);
 }
+
+@keyframes blink{
+    0%,50%{
+        opacity:1;
+    }
+    50.01%,100%{
+        opacity:.08;
+    }
+}
+
+.footer{
+    margin-top:120px;
+    font-size:12px;
+    animation:rainbow 1.5s infinite;
+}
+
 </style>
 
 </head>
 
 <body>
 
+<marquee scrollamount="12">
+🌸🌈✨ HAPPY FRIENDSHIP DAY COOKIEEE ✨🌈🌸
+</marquee>
+
 <h1>HAPPY FRIENDSHIP DAY!!</h1>
 
-<h3 style="color:red">Wishing all the very best for my cookieee</h3>
+<h3>
+Wishing all the very best for my cookieee ❤️
+</h3>
 
 <br>
 
-<h2>ਵਾਹਿਗੁਰੂ ਜੀ ਤੈਨੂੰ ਚੜ੍ਹਦੀ ਕਲਾ ਬਖ਼ਸ਼ਣ। 🙏</h2>
+<h4 id="hint">
+Maybe u are missing something hidden 👀
+</h4>
 
-<div class="corner" onclick="gift()" style="color:pink">
-    Maybe something is waiting
+<div class="corner" onclick="gift()">
+...
 </div>
-<h6 style="color:magenta; padding:300px">May be u are missing something hidden</h6>
+
+<div class="footer">
+<p>Best viewed on Internet Explorer 😎</p>
+<p>Visitor Counter : 00000007</p>
+</div>
+
 <script>
 
 function gift(){
@@ -56,18 +130,57 @@ function gift(){
 
     if(pin === "95411"){
 
-        alert("Correct Password");
+        alert("Correct Password ❤️");
 
-        window.location.href = "https://cookieee-and-her-tuitui.netlify.app/";
+        window.location.href="https://cookieee-and-her-tuitui.netlify.app/";
 
-    }
-    else{
+    }else{
 
-        alert("Access Denied");
+        alert("Access Denied ❌");
 
     }
 
 }
+
+// Hint messages
+const hints=[
+    "Maybe u are missing something hidden 👀",
+    "Nothing is hidden... probably 🤔"
+];
+
+let i=0;
+
+setInterval(()=>{
+    i=(i+1)%hints.length;
+    document.getElementById("hint").innerHTML=hints[i];
+},4000);
+
+// Hidden corner messages
+const msgs=[
+    "...",
+    "hmm",
+    "?",
+    "wait",
+    "maybe"
+];
+
+setInterval(()=>{
+    document.querySelector(".corner").innerHTML=
+    msgs[Math.floor(Math.random()*msgs.length)];
+},2500);
+
+// Slight rotation of heading
+setInterval(()=>{
+    document.querySelector("h1").style.transform=
+    `rotate(${Math.random()*8-4}deg)`;
+},2000);
+
+// Tiny movement of the hidden corner
+setInterval(()=>{
+    const c=document.querySelector(".corner");
+    c.style.bottom=(8+Math.random()*8)+"px";
+    c.style.right=(8+Math.random()*8)+"px";
+},1500);
 
 </script>
 
